@@ -44,6 +44,9 @@ find_package (FUSE REQUIRED)
 include_directories (${FUSE_INCLUDE_DIR})
 add_definitions (-D_FILE_OFFSET_BITS=64 -DFUSE_USE_VERSION=26)
 
+find_package (GCrypt REQUIRED)
+include_directories (${GCRYPT_INCLUDE_DIRS})
+
 # Check for OpenSSL.
 find_package (OpenSSL REQUIRED)
 include_directories (${OPENSSL_INCLUDE_DIR})
@@ -137,6 +140,7 @@ set_property(TARGET encfs PROPERTY SOVERSION ${ENCFS_SOVERSION})
 target_link_libraries(encfs
   ${FUSE_LIBRARIES}
   ${OPENSSL_LIBRARIES}
+  ${GCRYPT_LIBRARIES}
   ${Boost_LIBRARIES}
   ${RLOG_LIBRARIES}
   ${CMAKE_THREAD_LIBS_INIT}
