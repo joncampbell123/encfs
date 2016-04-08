@@ -21,7 +21,12 @@
 #ifndef _encfs_incl_
 #define _encfs_incl_
 
+#ifndef __STDC_FORMAT_MACROS
+#define __STDC_FORMAT_MACROS 1
+#endif
+
 #include <fuse.h>
+#include <inttypes.h>
 #include <rlog/rlog.h>
 #include <sys/types.h>
 #include <unistd.h>
